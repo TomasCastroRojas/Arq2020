@@ -1,0 +1,2 @@
+En este caso es necesario utilizar GDB ya que el codigo de salida solo presenta
+8 bits del registro rax. Deberia imprimirse el registro eax para ver el resultado.

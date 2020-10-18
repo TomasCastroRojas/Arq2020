@@ -1,0 +1,9 @@
+Una forma de obtener el codigo de salida es utilizar el comando 'echo $?'
+inmediatamente despues de ejecutar el programa y se imprimirá en consola la salida
+del programa.
+
+Otra forma seria utilizando el debugger GDB. Luego de correr
+el programa con el comando 'run' aparece sera el siguiente mensaje 
+[Inferior 1 (process 13945) exited with code '....'] donde los puntos suspensivos
+representan la salida del programa en octal. Tambien puede ocurrir que el mensaje sea 
+[Inferior 1 (process 14014) exited normally] que significa que la salida fue cero.
