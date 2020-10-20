@@ -5,6 +5,11 @@ i:      .quad 0xDEADBEEF
 .text
 .global main
 main:
+  #Ejemplo
+  movq $format, %rdi
+  movq $1234, %rsi
+  xorq %rax, %rax
+  call printf
 
   #Apartado a
   movq $format, %rdi
