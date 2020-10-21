@@ -1,6 +1,6 @@
 .data
 format: .asciz "%ld\n"
-formatC: .asciz "0x%08X\n"
+formatHex: .asciz "0x%08X\n"
 i:      .quad 0xDEADBEEF
 .text
 .global main
@@ -24,8 +24,8 @@ main:
   call printf
 
   #Apartado c
-  movq $formatC, %rdi
-  leaq formatC, %rsi
+  movq $formatHex, %rdi
+  leaq format, %rsi
   xorq %rax, %rax
   call printf
 
@@ -42,7 +42,7 @@ main:
   call printf
 
   #Apartado f
-  movq $formatC, %rdi
+  movq $formatHex, %rdi
   movq i, %rsi
   xorq %rax, %rax
   call printf
