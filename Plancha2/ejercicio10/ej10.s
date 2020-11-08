@@ -2,7 +2,8 @@
 .global longjmp2
 
 setjmp2:
-    popq %rcx 
+
+    movq (%rsp) , %rcx
     movq %rcx, (%rdi)
     movq %rsp, 8 (%rdi)
     movq %rbp, 16 (%rdi)
@@ -12,7 +13,8 @@ setjmp2:
     movq %r14, 48 (%rdi)
     movq %r15, 56 (%rdi)
     xorq %rax, %rax 
-    jmpq *%rcx
+    ret
+
 
 longjmp2:
     movq (%rdi), %rcx
@@ -23,5 +25,5 @@ longjmp2:
     movq 40 (%rdi), %r13
     movq 48 (%rdi), %r14
     movq 56 (%rdi), %r15
-    movq %rsi, %rdi
+    movq %rsi, %rax
     jmpq *%rcx
