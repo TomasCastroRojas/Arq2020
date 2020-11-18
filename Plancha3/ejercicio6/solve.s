@@ -15,21 +15,24 @@ solve:
   jz noSolucion         # si es igual a cero el sistema no tiene solucion
 
   ucomiss %xmm7, %xmm2  # pregunto si c es igual a cero
-  jnz soluciones
+  jnz noHomogeneo
   ucomiss %xmm7, %xmm5  # pregunto si f es igual a cero
-  jnz soluciones
+  jnz noHomogeneo
+
   # Caso homogeneo
   movss %xmm7, (%rdi)   # x = 0
   movss %xmm7, (%rsi)   # y = 0
   xorb %al, %al
   jmp final
 
-  soluciones:
+  noHomogeneo:
+  #Determinamos si es un caso tringular
   ucomiss %xmm7, %xmm0  # Triangular superior invertida
-  jz solucionTrian2
+  jz triangularInv
   ucomiss %xmm7, %xmm3  # Triangular superior
   jz triangularSup
 
+  # Caso contrario realizamos Gauss
   divss %xmm0, %xmm3    # d = d/a
   movss %xmm1, %xmm6    # Copio el valor de 'b' a una variable auxiliar
   movss %xmm2, %xmm7    # Copio el valor de 'c' a una variable auxiliar
@@ -48,7 +51,7 @@ solve:
     xorb %al, %al
     jmp final
 
-  solucionTrian2:
+  triangularInv:
     divss %xmm1, %xmm2  # c/b
     movss %xmm2, (%rsi) # y = c/b
     mulss %xmm2, %xmm4  # e = e*y
