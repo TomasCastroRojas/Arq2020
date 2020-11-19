@@ -9,18 +9,16 @@ main:
   movl $3, %edx #debe ser la longitud de cadenacorta
 .global compara
 compara:
-  xorb %al, %al
+  xorl %eax, %eax
   bucle:
     cmpl $0, %edx
     jz retorno
-    cmpq %rdi, %rsi
+    cmpsb (%rdi), (%rsi)
     jnz distintas
-    incq %rdi
-    incq %rsi
     decl %edx
     jmp bucle
 
   distintas:
-    incb %al
+    incl %eax
   retorno:
     ret
