@@ -2,6 +2,12 @@
 fact1:
     pushq %rbp
     movq %rsp, %rbp
+    cmpq $0, %rdi #Caso factorial (0)
+    jnz recursion
+    movq $1, %rax
+    jmp final
+
+    recursion:
     cmpq $1, %rdi
     jz casobase
     pushq %rdi
@@ -19,10 +25,15 @@ fact1:
 
 .global fact2
 fact2:
+    pushq %rbp
+    movq %rsp, %rbp
     movq $1 , %rax
-    movq $0 , %rcx
+    cmpq $0, %rdi #Caso factorial (0)
+    jz final
     movq %rdi , %rcx
     bucle:
-        imulq %rcx, %rax
+        mulq %rcx
         loop bucle
-    ret
+    final:
+      popq %rbp
+      ret
