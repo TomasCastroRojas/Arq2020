@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #define LARGO 10000
-#define BILLION 1E9
 
 void sum_simd (float *a, float *b, int len);
 
@@ -23,6 +21,13 @@ int main () {
   float *arrayA = crear_array (1, 1, LARGO);
   float *arrayB = crear_array (1, 1, LARGO);
 
+  printf ("Arreglo A\n");
+  imprimir_array (arrayA, LARGO);
+  printf ("Arreglo B\n");
+  imprimir_array (arrayB, LARGO);
+  sum (arrayA, arrayB, LARGO);
+  printf ("Arreglo suma\n");
+  imprimir_array (arrayA, LARGO);
 
   free (arrayA);
   free (arrayB);

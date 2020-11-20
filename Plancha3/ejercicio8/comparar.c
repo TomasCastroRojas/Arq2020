@@ -24,22 +24,20 @@ int main () {
   float *arrayA_packed = crear_array (1, 1, LARGO);
   float *arrayB_packed = crear_array (1, 1, LARGO);
 
-  // Calculate time taken by a request
+  // Ejecucion de la funcion
   struct timespec requestStart, requestEnd;
   clock_gettime (CLOCK_MONOTONIC_RAW , &requestStart);
   sum (arrayA_single, arrayB_single, LARGO);
   clock_gettime (CLOCK_MONOTONIC_RAW , &requestEnd);
 
-  // Calculate time it took
+  // Calculo de cuanto tiempo tomo
   double accum = (requestEnd.tv_sec - requestStart.tv_sec ) + (requestEnd.tv_nsec - requestStart.tv_nsec )/BILLION;
   printf ("Tiempo sum: %lf\n", accum);
 
-  // Calculate time taken by a request
   clock_gettime (CLOCK_MONOTONIC_RAW , &requestStart);
   sum_simd (arrayA_packed, arrayB_packed, LARGO);
   clock_gettime (CLOCK_MONOTONIC_RAW , &requestEnd);
 
-  // Calculate time it took
   accum = (requestEnd.tv_sec - requestStart.tv_sec ) + (requestEnd.tv_nsec - requestStart.tv_nsec )/BILLION;
   printf ("Tiempo sum_simd: %lf\n", accum);
 
