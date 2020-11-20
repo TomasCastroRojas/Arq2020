@@ -20,6 +20,7 @@ void imprimir_array (float *arr, int len) {
 int main () {
   float *arrayA = crear_array (1, 1, LARGO);
   float *arrayB = crear_array (1, 1, LARGO);
+  
   printf ("Arreglo A\n");
   imprimir_array (arrayA, LARGO);
   printf ("Arreglo B\n");
