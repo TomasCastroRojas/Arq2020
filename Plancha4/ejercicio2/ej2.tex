@@ -1,0 +1,12 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\begin{document}
+	\section*{Ejercicio 2}
+	\begin{enumerate}[label=\alph*)]
+		\item Para el programa A se necesitan $\frac{4300 bytes}{128 bytes} = 33.59 \rightarrow 34$ páginas como mínimo. Para el programa B se necesitan al menos $\frac{3068 bytes}{128 bytes} = 23.97 \rightarrow 24$ páginas.
+		\item Dado que las páginas son de 128KB, en cada programa se desperdicia en promedio $\frac{2^{7}}{2}= 64$KB por página por fragmentación interna. El método por paginación no desperdicia memoria por fragmentación externa.
+		\item Dado que hay $34 + 24 = 58$ páginas como mínimo, 34 del programa A y 24 del programa B, entonces la tabla de paginación tendra un tamaño de al menos $58 * 8 bytes = 464$ bytes.
+	\end{enumerate}
+\end{document}
