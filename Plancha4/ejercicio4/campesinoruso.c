@@ -1,6 +1,8 @@
 #include <stdio.h>
 
-unsigned int campesino_ruso(unsigned int i, unsigned int j) {
+unsigned int campesino_ruso(unsigned int i, unsigned int j);
+
+/*unsigned int campesino_ruso(unsigned int i, unsigned int j) {
   unsigned int res = 0;
   unsigned iter = 0;
   while (j > 1) {
@@ -17,8 +19,8 @@ unsigned int campesino_ruso(unsigned int i, unsigned int j) {
     }
   }
   return res + i;
-}
+}*/
 
 int main () {
-  printf ("resultado: %d\n", campesino_ruso(13, 9));
+  printf ("resultado: %d\n", campesino_ruso(3, 2));
 }
