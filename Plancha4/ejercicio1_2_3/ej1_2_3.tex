@@ -1,0 +1,33 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\begin{document}
+	\section*{Ejercicio 1}
+	\begin{Large}
+	\begin{center}
+		\begin{tabular}{ c | c | c }
+			\textbf{Dirección Lógica} & \textbf{Solicitud} & \textbf{Dirección Física} \\ \hline
+			0-430 & R & 670 \\ 
+			0-150 & W & Violación de Seguridad \\
+			1-15 & R & 2315 \\
+			2-130 & W & Desplazamiento fuera del rango \\
+			4-25 & X & Segmento Faltante \\
+		\end{tabular}
+	\end{center}
+	\end{Large}
+	\section*{Ejercicio 2}
+	\begin{enumerate}[label=\alph*)]
+		\item Para el programa A se necesitan $\frac{4300 bytes}{128 bytes} = 33.59 \rightarrow 34$ páginas como mínimo. Para el programa B se necesitan al menos $\frac{3068 bytes}{128 bytes} = 23.97 \rightarrow 24$ páginas.
+		\item Dado que las páginas son de 128KB, en cada programa se desperdicia en promedio $\frac{2^{7}}{2}= 64$KB por página por fragmentación interna. El método por paginación no desperdicia memoria por fragmentación externa.
+		\item Dado que hay $34 + 24 = 58$ páginas como mínimo, 34 del programa A y 24 del programa B, entonces la tabla de paginación tendra un tamaño de al menos $58 * 8 bytes = 464$ bytes.
+	\end{enumerate}
+	\section*{Ejercicio 3}
+	La instrucción \verb|LDR| en arquitectura \verb|ARM| permite un formato que incluye cargar un valor constante de 32-bits desde la versión \verb|ARMv6T2|. Esto es posible porque la arquitectura reserva un espacio de memoria al final de cada sección de código llamado \verb|literal pool|. Su propósito es justamente cargar valores constantes o direcciones de etiquetas, que su tamaño esta fuera del rango de las instrucciones \verb|MOV| y \verb|MVN|, que luego serán cargados a un registro.\\
+	Cuando se llama a esta instrucción con un valor constante de 32-bits, el ensamblador realiza lo siguiente:
+	\begin{itemize}
+		\item Verifica si el valor no se encuentra ya en alguna \verb|literal pool|. Si es así, carga la dirección de la constante ya existente. 
+		\item En caso contrario, coloca el valor en la siguiente \verb|literal pool| disponible y carga esa nueva dirección.
+	\end{itemize}
+	Sin embargo, si la siguiente \verb|literal pool| esta fuera de rango, el ensamblador genera un mensaje de error. 
+\end{document}
