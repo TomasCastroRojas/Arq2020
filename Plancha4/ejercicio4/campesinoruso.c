@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+// COMPILAR UTILIZANDO: arm-linux-gnueabi-gcc -static -marm -o campesino_ruso.out -g campesinoruso.c ej4.s
 
 unsigned int campesino_ruso(unsigned int i, unsigned int j);
 
@@ -21,6 +24,11 @@ unsigned int campesino_ruso(unsigned int i, unsigned int j);
   return res + i;
 }*/
 
-int main () {
-  printf ("resultado: %d\n", campesino_ruso(3, 2));
+int main (int argc, char* argv[]) {
+  if (argc == 3){
+    unsigned int a = atoi(argv[1]);
+    unsigned int b = atoi(argv[2]);
+    printf ("El resultado es: %d\n", campesino_ruso(a, b));
+  }
+  else printf ("No se ingreso la cantidad correcta de argumentos");
 }
