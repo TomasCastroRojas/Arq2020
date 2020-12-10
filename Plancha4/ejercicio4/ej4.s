@@ -1,8 +1,8 @@
 .global campesino_ruso
 .global main
 main:
-  MOV r0, #2         @ r0 = i
-  MOV r1, #3         @ r1 = j
+  MOV r0, #3         @ r0 = i
+  MOV r1, #31         @ r1 = j
   EOR r2, r2, r2     @ r2 = res = 0
 campesino_ruso:
   ANDS r3, r1, #1    @ j & 1
