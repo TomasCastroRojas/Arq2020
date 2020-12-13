@@ -19,8 +19,8 @@
 	\section*{Ejercicio 2}
 	\begin{enumerate}[label=\alph*)]
 		\item Para el programa A se necesitan $\frac{4300 bytes}{128 bytes} = 33.59 \rightarrow 34$ páginas como mínimo. Para el programa B se necesitan al menos $\frac{3068 bytes}{128 bytes} = 23.97 \rightarrow 24$ páginas.
-		\item Dado que las páginas son de 128KB, en cada programa se desperdicia en promedio $\frac{2^{7}}{2}= 64$KB por página por fragmentación interna. El método por paginación no desperdicia memoria por fragmentación externa.
-		\item La tabla de paginación del proceso A pesará: $34 * 8$ bytes = $272$ bytes. La tabla de paginación del proceso B pesará: $24 * 8$ bytes = $196$ bytes.
+		\item Dado que las páginas son de 128KB, el proceso A utiliza 34 paginas, es decir, 34*128KB = 4354 KB. Entonces el proceso A desperdicia 54 KB. En cuanto al proceso B, utiliza 24 páginas, es decir, 24*128KB = 3072 KB. Entonces el proceso B desperdicia 4 KB. El método por paginación no desperdicia memoria por fragmentación externa.
+		\item La tabla de paginación del proceso A pesará: $34 * 8$ bytes = $272$ bytes. La tabla de paginación del proceso B pesará: $24 * 8$ bytes = $192$ bytes.
 	\end{enumerate}
 	\section*{Ejercicio 3}
 	La instrucción \verb|LDR| en arquitectura \verb|ARM| permite un formato que incluye cargar un valor constante de 32-bits desde la versión \verb|ARMv6T2|. Esto es posible porque la arquitectura reserva un espacio de memoria al final de cada sección de código llamado \verb|literal pool|. Su propósito es justamente cargar valores constantes o direcciones de etiquetas, que su tamaño esta fuera del rango de las instrucciones \verb|MOV| y \verb|MVN|, que luego serán cargados a un registro.\\
