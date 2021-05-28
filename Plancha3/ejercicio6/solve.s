@@ -22,7 +22,7 @@ solve:
   # Caso homogeneo
   movss %xmm7, (%rdi)   # x = 0
   movss %xmm7, (%rsi)   # y = 0
-  xorb %al, %al
+  xorb %eax, %eax
   jmp final
 
   noHomogeneo:
@@ -48,7 +48,7 @@ solve:
     subss %xmm1, %xmm2  # c = c - b
     divss %xmm0, %xmm2  # c = c/a
     movss %xmm2, (%rdi) # x = c
-    xorb %al, %al
+    xorb %eax, %eax
     jmp final
 
   triangularInv:
@@ -58,13 +58,14 @@ solve:
     subss %xmm4, %xmm5  # f = f - e
     divss %xmm3, %xmm4  # f = f/d
     movss %xmm4, (%rdi) # x = f
-    xorb %al, %al
+    xorb %eax, %eax
     jmp final
 
   noSolucion:
-    xorb %al, %al
-    subb $1, %al
+    xorb %eax, %eax
+    subb $1, %eax
 
   final:
+  movq %rbp, %rsp
   popq %rbp
   ret
