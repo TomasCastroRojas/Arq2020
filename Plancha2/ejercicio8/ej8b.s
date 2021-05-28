@@ -1,6 +1,6 @@
 .data
   cadenalarga: .asciz "123456"
-  cadenacorta: .asciz "123"
+  cadenacorta: .asciz "124"
 .text
 .global main
 main:
@@ -13,7 +13,7 @@ compara:
   bucle:
     cmpl $0, %edx
     jz retorno
-    cmpsb (%rdi), (%rsi)
+    cmpsb #(%rdi), (%rsi)
     jnz distintas
     decl %edx
     jmp bucle
