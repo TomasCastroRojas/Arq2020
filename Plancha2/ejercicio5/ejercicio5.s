@@ -5,23 +5,23 @@ fact1:
     cmpq $0, %rdi #Caso factorial (0)
     jnz recursion
     movq $1, %rax
-    jmp final
+    jmp final1
 
     recursion:
-    cmpq $1, %rdi
-    jz casobase
-    pushq %rdi
-    decq %rdi
-    call fact1
-    popq %rdi
-    mulq %rdi
-    final:
+      cmpq $1, %rdi
+      jz casobase
+      pushq %rdi
+      decq %rdi
+      call fact1
+      popq %rdi
+      mulq %rdi
+    final1:
         movq %rbp, %rsp
         popq %rbp
     ret
     casobase:
         movq %rdi, %rax
-        jmp final 
+        jmp final1 
 
 .global fact2
 fact2:
@@ -35,5 +35,6 @@ fact2:
         mulq %rcx
         loop bucle
     final:
+      movq %rbp, %rsp
       popq %rbp
       ret
