@@ -4,9 +4,11 @@ entero: .long -100
 funcs:  .quad f1
         .quad f2
         .quad f3
+.text
 f1: movl $0, %esi; movq $fmt, %rdi; call printf; jmp fin
 f2: movl $1, %esi; movq $fmt, %rdi; call printf; jmp fin
 f3: movl $2, %esi; movq $fmt, %rdi; call printf; jmp fin
+
 
 .global main
 main:
@@ -21,8 +23,8 @@ main:
 
   xorq %rax, %rax
 
-  movl entero, %ebx
-  movq funcs(, %ebx, 8), %rdx
+  movl entero, %edx
+  movq funcs(, %edx, 8), %rdx
   jmp *%rdx
 
   fin:
