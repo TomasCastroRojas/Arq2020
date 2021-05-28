@@ -19,13 +19,13 @@ main:
 
   #Apartado b
   movq $format, %rdi
-  leaq format, %rsi
+  movq $format, %rsi
   xorq %rax, %rax
   call printf
 
   #Apartado c
   movq $formatHex, %rdi
-  leaq format, %rsi
+  movq $format, %rsi
   xorq %rax, %rax
   call printf
 
